@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  organization_date: 2015-01-29 06:22:51
+  group_id_id: 
+
+two:
+  name: MyString
+  description: MyText
+  organization_date: 2015-01-29 06:22:51
+  group_id_id: 

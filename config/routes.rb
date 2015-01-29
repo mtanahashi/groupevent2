@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  root to: redirect('/groups')
+  resources :event2s
+
+  resources :group2s
+
   resources :events
 
   resources :groups

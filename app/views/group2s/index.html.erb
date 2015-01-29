@@ -1,0 +1,60 @@
+<h1>Listing group2s</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Organization date</th>
+      <th>Group</th>
+      <th colspan="3"></th>
+<!-- events/indeh.html.erb からコピペして作成 ↓ここから -->
+      <th>Name</th>
+      <th>Description</th>
+      <th>Event date</th>
+      <th colspan="3"></th>
+<!-- events/indeh.html.erb からコピペして作成 ↑ここまで -->
+    
+    
+    
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @group2s.each do |group2| %>
+      <tr>
+        <td><%= group2.name %></td>
+        <td><%= group2.description %></td>
+        <td><%= group2.organization_date %></td>
+        <td><%= group2.group_id %></td>
+        <td><%= link_to 'Show', group2 %></td>
+        <td><%= link_to 'Edit', edit_group2_path(group2) %></td>
+        <td><%= link_to 'Destroy', group2, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+         <!-- groupに紐づいているeventを表示 ↓ここから -->
+        <% group.events.each_with_index do |event, i| %>
+
+          <!-- groupに紐づいているeventが複数ある場合は空白のgroup欄を作る ↓ここから -->
+          <% if 0<i %>
+            </tr><tr><td colspan=6></td>
+          <%end %>
+          <!-- groupに紐づいているeventが複数ある場合は空白のgroup欄を作る ↑ここまで -->
+
+          <!-- eventの情報を表示(ひとつぶん) events/indeh.html.erb からコピペして作成 ↓ここから -->
+          <td><%= event.name %></td>
+          <td><%= event.description %></td>
+          <td><%= event.event_date %></td>
+          <td><%= link_to 'Show', event %></td>
+          <td><%= link_to 'Edit', edit_event_path(event) %></td>
+          <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <!-- eventの情報を表示(ひとつぶん) events/indeh.html.erb からコピペして作成 ↑ここまで -->
+        <% end %>
+        <!-- groupに紐づいているeventを表示 ↑ここまで -->
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Group2', new_group2_path %>

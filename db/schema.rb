@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129055103) do
+ActiveRecord::Schema.define(version: 20150129064706) do
+
+  create_table "event2s", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "event_date"
+    t.integer  "group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "event2s", ["group_id"], name: "index_event2s_on_group_id"
 
   create_table "events", force: true do |t|
     t.string   "name"
@@ -20,6 +31,17 @@ ActiveRecord::Schema.define(version: 20150129055103) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "group2s", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "organization_date"
+    t.integer  "group_id_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "group2s", ["group_id_id"], name: "index_group2s_on_group_id_id"
 
   create_table "groups", force: true do |t|
     t.string   "name"

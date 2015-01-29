@@ -7,6 +7,12 @@
       <th>Description</th>
       <th>Organization date</th>
       <th colspan="3"></th>
+ 
+      <th>Name</th>
+      <th>Description</th>
+      <th>Event date</th>
+      <th colspan="3"></th>
+      
     </tr>
   </thead>
 
@@ -19,7 +25,29 @@
         <td><%= link_to 'Show', group %></td>
         <td><%= link_to 'Edit', edit_group_path(group) %></td>
         <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+ 
+
+        <% group.event2s.each_with_index do |event2, i| %>
+
+
+        <% if 0<i %>
+            </tr><tr><td colspan=6></td>
+          <%end %>
+
+ 
+        <td><%= event2.name %></td>
+        <td><%= event2.description %></td>
+        <td><%= event2.event_date %></td>
+        <td><%= event2.group %></td>
+        <td><%= link_to 'Show', event2 %></td>
+        <td><%= link_to 'Edit', edit_event2_path(event2) %></td>
+        <td><%= link_to 'Destroy', event2, method: :delete, data: { confirm: 'Are you sure?' } %></td>    
+
+
+        <% end %>
+
+    
+    </tr>
     <% end %>
   </tbody>
 </table>
